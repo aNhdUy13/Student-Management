@@ -8,6 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StudentController extends AbstractController
 {
+    #[Route('/studentManagement', name: 'studentManagement')]
+    public function studentManagement(): Response
+    {
+        return $this->render('student/login.html.twig', [
+            'controller_name' => 'StudentController',
+        ]);
+    }
+
     #[Route('/mainBoard', name: 'mainBoard')]
     public function index(): Response
     {

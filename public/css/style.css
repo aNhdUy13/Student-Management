@@ -6,6 +6,119 @@ body {
     background-color: #dfa86a;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+/*=============================== Login ===============================*/
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://www.gre.ac.uk/__data/assets/image/0027/119664/Greenwich_campus_at_night.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+div.loginBox {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin-left: 37%;
+    margin-top: 5%;
+    background: #fff;
+    padding: 5px;
+    float: left;
+}
+
+div.loginBox div.greeting {
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+}
+
+div.loginBox div.greeting h2 {
+    font-size: 50px;
+    text-align: center;
+}
+
+div.social-icons {
+    width: 100%;
+    height: 10%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+div.formInput {
+    width: 100%;
+    height: 50%;
+    margin-top: 10%;
+}
+
+div.formInput form input.inputAccount {
+    width: 60%;
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form input.inputPassword {
+    width: 60%;
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    margin-top: 20px;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form input.checkBoxLogin {
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    margin-top: 20px;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form button.btnLogin {
+    width: 85%;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    margin-left: 10%;
+    margin-top: 30px;
+    background: linear-gradient(to right, #636ce4, #859cda);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+
+/* (End) Login */
+
 
 /*=============================== Header ===============================*/
 
