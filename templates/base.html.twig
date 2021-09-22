@@ -6,7 +6,8 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block css %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}"
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}"  
+
         {% endblock %}
 
       
@@ -29,16 +30,16 @@
                                     </li>
                                    
                                      <li>
-                                        <a href="{{ path('mainBoard')}}">Student Management</a>
+                                        <a href="{{ path('studentManagement')}}">Student Management</a>
                                     </li>
-
+{# 
                                       <li>
                                         <a href="{{ path('mainBoard')}}">About Us</a>
                                     </li>
 
                                       <li>
                                         <a href="{{ path('mainBoard')}}">Contact Us</a>
-                                    </li>
+                                    </li> #}
 
                                     
                                       <li>
@@ -70,7 +71,7 @@
         {% block footer %}
         <!-- Footer -->
             <div class="footer">
-                <footer>Copyright <a>&copy</a> 2020 </footer>
+                <footer>Copyright <a>&copy</a> 2021 </footer>
             </div>
         <!-- (End) Footer -->
         {% endblock %}

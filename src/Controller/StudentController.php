@@ -8,8 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StudentController extends AbstractController
 {
-    #[Route('/studentManagement', name: 'studentManagement')]
-    public function studentManagement(): Response
+    #[Route('/loginStudentManagement', name: 'loginStudentManagement')]
+    public function login(): Response
     {
         return $this->render('student/login.html.twig', [
             'controller_name' => 'StudentController',
@@ -20,6 +20,24 @@ class StudentController extends AbstractController
     public function index(): Response
     {
         return $this->render('student/index.html.twig', [
+            'controller_name' => 'StudentController',
+        ]);
+    }
+
+
+    /* Regarding to Lecturer */
+    #[Route('/studentManagement', name: 'studentManagement')]
+    public function studentManagement(): Response
+    {
+        return $this->render('student/studentManagement.html.twig', [
+            'controller_name' => 'StudentController',
+        ]);
+    }
+
+    #[Route('/addStudent', name: 'addStudent')]
+    public function addStudent(): Response
+    {
+        return $this->render('student/addStudent.html.twig', [
             'controller_name' => 'StudentController',
         ]);
     }

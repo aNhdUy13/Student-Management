@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Content -->
+    <div class="main_Content">
+        <div class="titleGetStudentData">
+            <h2>Add Student</h2>
+        </div>
+
+        <div class="getStudentData">
+            <form>
+                <table>
+                    <body>
+                        <tr>
+                            <td>
+                                <input type="text" class="inputName" placeholder="Name" required>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" class="inputDoB" placeholder="Date of Birth" required>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <input type="text" class="inputGender" placeholder="Gender" required>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" class="inputPhoneNumber" placeholder="Phone Number" required>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" class="inputClass" placeholder="Class" required>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" class="inputCourse" placeholder="Course" required>
+                            </td>
+                        </tr>
+
+					    <tr>
+							<td>
+                                <h3>Choose file Image</h3>
+                             </td>
+						</tr>
+
+						<tr>
+	    					<td><input type="file" name="fn" value="Choose File" id="fn" /></td>	
+
+
+						</tr>
+
+                        <tr>
+                            <td>
+                                <button type="submit" class="btnAddStudent">Add</button>
+                            </td>
+                        </tr>
+                    </body>
+                </table>
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+            <!-- (End) Content -->
+{% endblock %}
