@@ -15,7 +15,13 @@ class StudentController extends AbstractController
             'controller_name' => 'StudentController',
         ]);
     }
-
+    #[Route('/logoutStudentManagement', name: 'logoutStudentManagement')]
+    public function logout(): Response
+    {
+        return $this->render('student/logout.html.twig', [
+            'controller_name' => 'StudentController',
+        ]);
+    }
     #[Route('/mainBoard', name: 'mainBoard')]
     public function index(): Response
     {
