@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(195, 208, 245);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+/*=============================== Login / Logout ===============================*/
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://www.gre.ac.uk/__data/assets/image/0027/119664/Greenwich_campus_at_night.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+div.loginBox {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin-left: 37%;
+    margin-top: 5%;
+    background: #fff;
+    padding: 5px;
+    float: left;
+}
+
+div.loginBox div.greeting {
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+}
+
+div.loginBox div.greeting h2 {
+    font-size: 50px;
+    text-align: center;
+}
+
+div.social-icons {
+    width: 100%;
+    height: 10%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+div.formInput {
+    width: 100%;
+    height: 50%;
+    margin-top: 10%;
+}
+
+div.formInput form input.inputAccount {
+    width: 60%;
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form input.inputPassword {
+    width: 60%;
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    margin-top: 20px;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form input.checkBoxLogin {
+    padding: 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 10px;
+    margin-left: 20%;
+    margin-top: 20px;
+    border-bottom: 1px solid #999;
+    background: transparent;
+}
+
+div.formInput form button.btnLogin {
+    width: 85%;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    margin-left: 10%;
+    margin-top: 30px;
+    background: linear-gradient(to right, #636ce4, #859cda);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+div.logoutBox {
+    width: 380px;
+    height: 150px;
+    margin-top: 15%;
+    margin-left: 37%;
+    background: #fff;
+    padding: 5px;
+    float: left;
+}
+
+div.logoutBox h2 {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+div.logoutBox button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+
+/* (End) Login / Logout*/
+
+
+/*=============================== Header ===============================*/
+
+div.header {
+    width: 100%;
+    height: 150px;
+}
+
+div.greeting {
+    width: 100%;
+    height: 75%;
+    font-size: 40px;
+    font-family: Courier;
+    text-align: center;
+}
+
+div.navigation_bar {
+    width: 100%;
+    height: 25%;
+    background-color: #6a8fdf;
+}
+
+div.navigation_bar {
+    position: sticky;
+    top: 0%;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul {
+    padding: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+    color: white;
+    background-color: #4566d1;
+}
+
+nav ul li a:hover {
+    background-color: black;
+}
+
+input.get_text_search {
+    margin-left: 60%;
+}
+
+
+/* (End) Header */
+
+
+/*=============================== Main Content ===============================*/
+
+div.main_Content {
+    width: 100%;
+    height: 700px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+div.intro_image_content {
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.intro_image_content img {
+    width: 100%;
+    height: 700px;
+    background: url(https://www.gre.ac.uk/__data/assets/image/0027/119664/Greenwich_campus_at_night.jpg);
+}
+
+div.insertProduct {
+    width: 100%;
+    height: 40%;
+}
+
+div.insertProduct div.insertTitle {
+    margin-left: 43%;
+}
+
+div.insertProduct table {
+    border: 1px solid black;
+    padding: 20px;
+    padding-right: 110px;
+    padding-left: 50px;
+    margin-left: 30%;
+}
+
+div.insertProduct table input {
+    margin-bottom: 5px;
+}
+
+div.insertProduct table input.insertButton {
+    width: 90px;
+    margin-top: 10px;
+}
+
+div.product_content p.product_id {
+    text-align: center;
+    height: 25px;
+}
+
+div.product_content p.product_name {
+    text-align: center;
+    height: 25px;
+}
+
+div.product_content button.product_price {
+    width: 100px;
+    height: 25px;
+    margin-left: 25%;
+}
+
+div.tableProduct {
+    width: 100%;
+    height: 45%;
+    overflow: auto;
+}
+
+div.tableProduct form {
+    margin-left: 32%;
+    margin-bottom: 1%;
+}
+
+div.tableProduct table {
+    width: 80%;
+    margin-left: 10%;
+}
+
+div.tableProduct table button a {
+    text-decoration: none;
+    text-decoration-color: black;
+}
+
+
+/* (End) Main Content */
+
+div.footer {
+    width: 100%;
+    padding: 40px;
+    color: black;
+    text-align: center;
+    height: 50px;
+    clear: both;
+    background-color: rgb(195, 208, 245);
+}
+
+
+/*=============================== Student Management ===============================*/
+
+div.main_Content div.btnAddStudent {
+    width: 100%;
+    height: 100px;
+}
+
+div.main_Content div.btnAddStudent button {
+    width: 200px;
+    height: 40px;
+    border: 2px;
+    margin-left: 42%;
+    margin-top: 40px;
+    border: 3px solid #6a8fdf;
+}
+
+div.main_Content div.tableShowListStudent {
+    width: 100%;
+    height: 600px;
+    background-color: #999;
+}
+
+div.main_Content div.titleGetStudentData {
+    width: 100%;
+    height: 100px;
+}
+
+div.main_Content div.titleGetStudentData h2 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+div.main_Content div.getStudentData {
+    width: 100%;
+    height: 600px;
+}
+
+div.main_Content div.getStudentData form {
+    width: 100%;
+    height: 600px;
+    margin-left: 40%;
+}
+
+div.main_Content div.getStudentData form table input {
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+div.main_Content div.getStudentData form table button {
+    width: 100px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+div.main_Content div.getStudentData form table h3 {
+    margin-top: 20px;
+}
