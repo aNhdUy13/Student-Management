@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Class{% endblock %}
+
+{% block body %}
+<div class="container col-md-6 mt-3">
+
+    <h2><a href="{{ path('sclass_add') }}" class="btn btn-outline-success">New Class</a></h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Maximum</th>
+                <th>Menu</th>
+            </tr>
+        </thead>
+
+        <tBody>
+            {% for class in classes %}
+            <tr>
+                <td>{{class.id}}</td>
+                <td>{{class.name}}</td>
+                <td>{{class.maximum}}</td>
+                <td>
+                    <a href="{{ path('sclass_update',{'id' : class.id}) }}" class="btn btn-primary">Update</a>
+
+                    <a href="{{ path('sclass_delete', {'id': class.id}) }}" class="btn btn-danger"
+                    onclick="return confirm('Are you sure to DELETE ?')">
+                         Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tBody>
+    </table>
+</div>
+{% endblock %}

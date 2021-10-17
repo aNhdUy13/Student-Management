@@ -35,7 +35,13 @@
                         </li>
                         
                             <li class = "nav-item">
-                            <a class = "nav-link text-white" href="#">Student</a>
+                            <a class = "nav-link text-white" href="{{ path('student_index')}}">Student</a>
+                        </li>
+
+                         </li>
+                        
+                            <li class = "nav-item">
+                            <a class = "nav-link text-white" href="{{path('sclass_index')}}">Class</a>
                         </li>
 
                         <li class = "nav-item">
@@ -60,6 +66,19 @@
 
             <!-- (End) Header -->
         {% endblock %}
+
+
+         {# Tạo session để hiển thị thông báo flash  được gửi từ controller 
+        ( back - end ) #}
+        <div class="container mt-3 text-center col-md-5">
+            {% for message in app.flashes('Error') %}
+                <p class="alert alert-warning">{{message}}</p>
+            {% endfor %}
+        
+            {% for message in app.flashes('Success') %}
+                <p class="alert alert-success">{{message}}</p>
+            {% endfor %}
+        </div>
 
 
         {% block body %}

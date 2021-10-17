@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student Detail{% endblock %}
+
+{% block body %}
+<div class="container col-6 mt-3">
+    <table  class="table table-striped">
+        <head>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+                <th>Menu</th>
+            </tr>
+        </head>
+                <tr>
+                    <td>
+                        <img src="{{asset('images/students/'~student.image)}}" 
+                        width="120" height="120" alt="">
+                    </td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.phoneNumber}}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary">Update</a>
+
+                        <a href="{{ path('student_delete',{'id' : student.id}) }}" 
+                            class="btn btn-danger" onclick="return confirm('Delete this Student ? ')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+        <body>
+            
+        </body>
+    </table>
+</div>
+{% endblock %}
