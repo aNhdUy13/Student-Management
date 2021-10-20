@@ -2,16 +2,16 @@
 <html>
     <head>
               <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Student Management !{% endblock %}</title>
 
         {% block stylesheets %}
             <!-- CSS only -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-       
-       
-
         {% endblock %}
 
+        {% block css %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
         {% block javascripts %}
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
@@ -22,13 +22,13 @@
     <body>
          {% block header %}
              <!-- Header -->
-            <div class="header text-center mt-3">
-                <div class="greeting ">
+            <div class="header">
+                <div class = "greeting">
                     <h1> Student Management </h1>
                 </div>
             </div>
     
-            <div class="container text-center bg-success mt-5">    
+            <div class="navigation_bar">    
                     <ul class="nav">
                         <li class = "nav-item">
                             <a class = "nav-link text-white" href="{{ path('homepage')}}">Home</a>

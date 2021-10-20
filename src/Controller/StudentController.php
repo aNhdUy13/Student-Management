@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\StudentType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,7 +56,27 @@ class StudentController extends AbstractController
 
     #[Route('/student/add', name: 'student_add')]
     public function addStudentAction(Request $request){
-        
+        $student = new Student();
+        $form = $this->createForm(StudentType::class, $student);
+        $form -> handleRequest($request);
+
+        if($form -> isSubmitted() && $form -> isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+
+            $manager->persist($student);
+
+            $manager->flush();
+
+            $this -> addFlash('Success', "Student Added Success!");
+
+            return $this -> redirectToRoute('student_index');
+        }
+
+        return $this -> render('student/add.html.twig',
+        [
+            'form' => $form->createView(),
+        ]);
+
     }
 
     #[Route('student/update/{id}', name: 'student_update')]
