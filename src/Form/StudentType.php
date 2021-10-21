@@ -51,7 +51,7 @@ class StudentType extends AbstractType
             [
                 'label' => "Image",
                 'data_class' => null,
-                'required' => is_null($builder->getData() -> getImage())
+                'required' => is_null($builder->getData()->getImage())
 
             ])
 
