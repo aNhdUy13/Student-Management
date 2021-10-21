@@ -5,27 +5,32 @@
 {% block body %}
 <div class="container col-md-6 mt-5">
 
-    <h2><a href="{{ path('sclass_add') }}" class="btn btn-outline-success">New Class</a></h2>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Maximum</th>
+                <th>Student</th>
                 <th>Menu</th>
             </tr>
         </thead>
 
         <tBody>
-            {% for class in classes %}
             <tr>
                 <td>{{class.id}}</td>
                 <td>
-                    <a href="{{ path('sclass_detail',{'id':class.id}) }}">
-                        {{class.name}}
-                    </a>
+                    {{class.name}}
                 </td>
                 <td>{{class.maximum}}</td>
+                <td>
+                    {% for s in class.students %}
+                        <a href="{{ path("student_detail",{'id' : s.id}) }}" class="">
+                            {{ s.name }}
+                            <br>
+                        </a>
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('sclass_update',{'id' : class.id}) }}" class="btn btn-primary">Update</a>
 
@@ -35,7 +40,6 @@
                     </a>
                 </td>
             </tr>
-            {% endfor %}
         </tBody>
     </table>
 </div>
