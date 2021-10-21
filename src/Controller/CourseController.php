@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\;
+use App\Entity\Course;
 use App\Form\CourseType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
