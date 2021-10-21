@@ -36,12 +36,12 @@
                
 
                     <td>
-                        {% for c in student.class %}
+                        {% if student.class != null %}
                             <a href="#">
-								{{ c.name }}
+								{{ student.class.name }}
                             </a>
                             <br>
-                        {% endfor %}
+                        {% endif %}     
                     </td>
 
                     <td>

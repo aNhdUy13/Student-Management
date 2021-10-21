@@ -14,11 +14,21 @@ class SclassController extends AbstractController
     #[Route('/sclass', name: 'sclass_index')]
     public function index(): Response
     {
-        $sclass =$this -> getDoctrine() -> getRepository(Sclass::class) -> findAll();
+        $sclasses =$this -> getDoctrine() -> getRepository(Sclass::class) -> findAll();
         
         return $this->render('sclass/index.html.twig',
         [
-            'classes' => $sclass,
+            'classes' => $sclasses,
+        ]);
+    }
+
+    #[Route('/sclass/detail/{id}', name : "sclass_detail")]
+    public function classDetailAction($id){
+        $sclass = $this -> getDoctrine() -> getRepository(Sclass::class) -> find($id);
+
+        return $this -> render('sclass/detail.html.twig', 
+        [
+            'class' => $sclass,
         ]);
     }
 
