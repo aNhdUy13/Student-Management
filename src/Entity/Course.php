@@ -25,7 +25,7 @@ class Course
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer")  
      */
     private $duration;
 
