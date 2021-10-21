@@ -4,10 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
+
 use Symfony\Component\HttpFoundation\Request;
+use function PHPUnit\Framework\throwException;
 use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class StudentController extends AbstractController
 {
@@ -61,6 +67,30 @@ class StudentController extends AbstractController
         $form -> handleRequest($request);
 
         if($form -> isSubmitted() && $form -> isValid()) {
+             //code xử lý ảnh upload
+            //B1: lấy ảnh từ file upload
+            $image = $student->getImage();
+            //B2: tạo tên mới cho ảnh => tên file ảnh là duy nhất
+            $imgName = uniqid(); //unique ID
+            //B3: lấy ra phần đuôi (extension) của ảnh
+            $imgExtension = $image -> guessExtension();
+            //B4: gộp tên mới + đuôi tạo thành tên file ảnh hoàn thiện
+            $imageName = $imgName . "." . $imgExtension;
+            //B5: di chuyển file ảnh upload vào thư mục chỉ định
+            try {
+                $image->move(
+                    $this->getParameter('student_image'),
+                    $imageName
+                    //Lưu ý: cần khai báo tham số đường dẫn của thư mục
+                    //cho "book_cover" ở file config/services.yaml
+                );
+            } catch (FileException $e) {
+                throwException($e);
+            }
+            //B6: lưu tên vào database
+            $student->setImage($imageName);
+
+
             $manager = $this->getDoctrine()->getManager();
 
             $manager->persist($student);
