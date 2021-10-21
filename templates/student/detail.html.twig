@@ -11,7 +11,7 @@
                 <th>Name</th>
                 <th>Gender</th>
                 <th>Phone Number</th>
-                {# <th>Course</th> #}
+                <th>Course</th>
                 <th>Class</th>
                 <th>Menu</th>
             </tr>
@@ -24,19 +24,26 @@
                     <td>{{student.name}}</td>
                     <td>{{student.gender}}</td>
                     <td>{{student.phoneNumber}}</td>
-{# 
-                    {% for a in student.course %}
-                        <a href="#"></a>
-                        <td>{{a.name}}</td>
-                    {% endfor %} #}
+                    <td>
+                         {% for co in student.course %}
+                            <a href="#">
+                                {{co.name}}
+                            </a>
+                            <br>
+                         {% endfor %}
+                    </td>
+
+               
 
                     <td>
-                        {% for b in student.class %}
+                        {% for c in student.class %}
                             <a href="#">
-                                {{b.name}}
+								{{ c.name }}
                             </a>
+                            <br>
                         {% endfor %}
                     </td>
+
                     <td>
                         <a href="#" class="btn btn-primary">Update</a>
 
