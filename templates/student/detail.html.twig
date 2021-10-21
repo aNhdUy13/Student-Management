@@ -37,7 +37,7 @@
 
                     <td>
                         {% if student.class != null %}
-                            <a href="#">
+                            <a href="{{ path('sclass_detail', {'id' : student.class.id}) }}">
 								{{ student.class.name }}
                             </a>
                             <br>

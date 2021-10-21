@@ -20,15 +20,14 @@
             <tr>
                 <td>{{class.id}}</td>
                 <td>
-                    <a href="{{ path('sclass_detail',{'id':class.id}) }}">
-                        {{class.name}}
-                    </a>
+                    {{class.name}}
                 </td>
                 <td>{{class.maximum}}</td>
                 <td>
                     {% for s in class.students %}
-                        <a href="#">
+                        <a href="{{ path("student_detail",{'id' : s.id}) }}" class="">
                             {{ s.name }}
+                            <br>
                         </a>
                     {% endfor %}
                 </td>
