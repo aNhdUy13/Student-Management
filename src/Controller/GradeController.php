@@ -86,11 +86,11 @@ class GradeController extends AbstractController
             $manager->flush();
 
             $this->addFlash('Success', "Grade has been updated successfully !");
-            return $this->redirectToRoute("grade");
+            return $this->redirectToRoute("grade_view");
         }
 
         return $this->render (
-            "grade/edit.html.twig", 
+            "grade/update.html.twig", 
             [
                 'form' => $form->createView()
             ]
