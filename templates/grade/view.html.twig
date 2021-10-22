@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grade
+{% endblock %}
+
+{% block body %}
+	<div class="container col-6 mt-3">
+		<h2>
+			<a href="{{ path('grade_add') }}" class="btn btn-outline-success">New Grade</a>
+		</h2>
+
+		<table class="table table-striped">
+			<head>
+				<tr>
+					<th>ID</th>
+					<th>Student Name</th>
+					<th>Subject</th>
+					<th>Grade</th>
+					<th>Menu</th>
+				</tr>
+			</head>
+
+
+			{% for g in grades %}
+				<tr>
+					<td>{{g.id}}</td>
+					<td>{{g.student.name}}</td>
+					<td>{{g.subject.name}}</td>
+
+
+					<td>{{g.grade}}</td>
+					<td>
+						<a href="{{path('grade_detail',{'id':g.id})}}" class="btn btn-info">Detail</a>
+						<a href="{{path('grade_update',{'id': g.id})}}" class="btn btn-primary">Update</a>
+
+						<a href="{{ path('grade_delete',{'id' : g.id}) }}" class="btn btn-danger" onclick="return confirm('Do you really want to delete ? ')">
+							Delete
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+
+			<body></body>
+		</table>
+	</div>
+{% endblock %}
