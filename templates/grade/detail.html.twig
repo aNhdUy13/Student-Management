@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grade Detail
+{% endblock %}
+
+{% block body %}
+	<div class="container col-6 mt-3">
+		<table class="table table-striped">
+			<head>
+				<tr>
+					<th>ID</th>
+					<th>Student Name</th>
+					<th>Subject</th>
+					<th>Subject Code</th>
+					<th>Grade</th>					
+					<th>Menu</th>
+				</tr>
+			</head>
+			<tr>
+				<td>{{grade.id}}</td>
+                <td>
+					<a href="{{path('student_detail',{'id':grade.student.id})}}">{{grade.student.name}}</a>
+				</td>
+                <td>{{grade.subject.name}}</td>
+				<td>{{grade.subject.subjectCode}}</td>
+				<td>{{grade.grade}}</td>
+				<td>
+					<a href="{{path('grade_update',{'id': grade.id}) }}" class="btn btn-primary">Update</a>
+
+					<a href="{{ path('grade_delete',{'id' : grade.id}) }}" class="btn btn-danger" onclick="return confirm('Do you want ? ')">
+						Delete
+					</a>
+				</td>
+			</tr>
+			<body></body>
+		</table>
+	</div>
+{% endblock %}
