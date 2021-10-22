@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subject{% endblock %}
+
+{% block body %}
+	<div class="container col-6 mt-3">
+		<h2>
+			<a href="{{ path('subject_add') }}" class="btn btn-outline-success">New Subject</a>
+		</h2>
+
+		<table class="table table-striped">
+			<head>
+				<tr>
+					<th>ID</th>
+					<th>Subject Name</th>
+					<th>Subject Code</th>
+					<th>Menu</th>
+				</tr>
+			</head>
+
+
+			{% for subject in subjects %}
+				<tr>
+					<td>{{subject.id}}</td>
+					<td>{{subject.name}}</td>
+					<td>{{subject.subjectCode}}</td>
+					<td>
+						<a href="{{path('subject_detail',{'id':subject.id})}}" class="btn btn-info">Detail</a>
+						<a href="{{path('subject_update',{'id': subject.id})}}" class="btn btn-primary">Update</a>
+
+						<a href="{{ path('subject_delete',{'id' : subject.id}) }}" class="btn btn-danger" onclick="return confirm('Do you really want to delete ? ')">
+							Delete
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+
+			<body></body>
+		</table>
+	</div>
+{% endblock %}

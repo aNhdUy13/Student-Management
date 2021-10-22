@@ -8,16 +8,14 @@
 		<table class="table table-striped">
 			<head>
 				<tr>
-					<th>ID</th>
 					<th>Student Name</th>
-					<th>Subject</th>
+					<th>Subject Name</th>
 					<th>Subject Code</th>
 					<th>Grade</th>					
 					<th>Menu</th>
 				</tr>
 			</head>
 			<tr>
-				<td>{{grade.id}}</td>
                 <td>
 					<a href="{{path('student_detail',{'id':grade.student.id})}}">{{grade.student.name}}</a>
 				</td>
