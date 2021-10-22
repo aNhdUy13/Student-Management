@@ -21,7 +21,10 @@ class SubjectType extends AbstractType
                 'label' => 'Subject Code',
                 'required' => true
             ])
-
+            ->add('description',TextType::class, [
+                'label' => 'Description',
+                'required' => true
+            ])   
         ;
     }
 

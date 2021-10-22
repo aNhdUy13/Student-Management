@@ -10,12 +10,14 @@
 				<tr>
 					<th>Subject Name</th>
 					<th>Subject Code</th>
+                    <th>Description</th>
                     <th>Menu</th>
 				</tr>
 			</head>
 			<tr>
                 <td>{{subject.name}}</td>
                 <td>{{subject.subjectCode}}</td>
+                <td>{{subject.description}}</td>
 				<td>
 					<a href="{{path('subject_update',{'id': subject.id}) }}" class="btn btn-primary">Update</a>
 
