@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Course;
+use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,9 +13,25 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('duration')
-            ->add('students')
+            ->add('name', TextType::class, 
+            [
+                'label' => "Course Name",
+                'required' => true,
+            ])
+            ->add('duration', IntegerType::class,
+            [
+                'label' => "Course Duration",
+                'required' => true,
+                'currency' => "months"
+            ])
+            ->add('students', EntityType::class,
+            [
+                'label' => "Students",
+                'class' => Student::class,
+                'choice_label' => "name",
+                'multiple' => false,
+                'expanded' => false,
+            ])
         ;
     }
 

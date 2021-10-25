@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Course;
+use App\Entity\Student;
 use App\Form\CourseType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,13 +60,49 @@ class CourseController extends AbstractController
 
     #[Route('/course/add', name : 'course_add')]
     public function courseAdd(Request $request){
+        $course = new Course();
+        $form = $this->createForm(Course::class, $course);
+        $form -> handleRequest($request);
+
+        if ($form -> isSubmitted() && $form -> isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($course);
+            $manager->flush();
+
+            $this -> addFlash('Success',"Course has been added successfully !");
+            return $this->redirectToRoute("course_index");
+        }
+
+        return $this->render(
+            "course/add.html.twig",
+            [
+                'form' => $form->createView()
+            ]
+        )
 
     }
 
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
+        $form = $this->createForm(Course::class, $course);
+        $form -> handleRequest($request);
 
+        if ($form -> isSubmitted() && $form -> isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($course);
+            $manager->flush();
+
+            $this -> addFlash('Success',"Course has been updated successfully !");
+            return $this->redirectToRoute("course_index");
+        }
+
+        return $this->render(
+            "course/add.html.twig",
+            [
+                'form' => $form->createView()
+            ]
+        )
     }
 
 
