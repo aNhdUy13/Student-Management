@@ -44,7 +44,17 @@ class CourseController extends AbstractController
 
     #[Route('/course/delete/{id}', name : 'course_delete')]
     public function courseDelete($id){
-
+        $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
+        if ($course == null){
+            $this->addFlash('Error','Course not exist !');  
+        }
+        else{
+            $manager = $this->getDoctrine()->getManager();
+            $manager->remove($course);
+            $manager->flush();
+            $this->addFlash('Success','Course has been deleted !');
+        }
+        return $this->redirectToRoute('course_index');
     } 
 
     #[Route('/course/add', name : 'course_add')]
@@ -54,7 +64,8 @@ class CourseController extends AbstractController
 
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
-        
+        $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
+
     }
 
 

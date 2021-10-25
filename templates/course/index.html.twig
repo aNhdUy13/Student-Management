@@ -20,9 +20,9 @@
                     <td>{{course.duration}}</td>
                     <td>
                         <a href="{{ path('course_detail', {'id' :course.id}) }}" class="btn btn-secondary">Detail</a>
-                        <a href="{{ path('student_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
-                        <a href="{{ path('student_delete',{'id' : course.id}) }}" 
-                            class="btn btn-danger" onclick="return confirm('Delete this Student ? ')">Delete</a>
+                        <a href="{{ path('course_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
+                        <a href="{{ path('course_delete',{'id' : course.id}) }}" 
+                            class="btn btn-danger" onclick="return confirm('Delete this Course ? ')">Delete</a>
                     </td>
                 </tr>
             {% endfor %}    
