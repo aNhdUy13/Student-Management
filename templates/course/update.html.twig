@@ -5,31 +5,41 @@
 {% endblock %}
 
 {% block body %}
-<div class="container col-6 mt-3">
-    <h2><a href="{{ path('course_index') }}" class="btn btn-outline-success">Course List</a></h2>
+<div class = "OutsideAdd">
+    <div class="container-fluid mt-3">
+    <h2 class="text-center"> Update New Course</h2>
 
-    <table  class="table table-striped">
-        <head>
-            <tr>
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Duration</th>
-                <th>MENU</th>
-            </tr>
-        </head>
-                <tr>
-                    <td>{{course.id}}</td>
-                    <td>{{course.name}}</td>
-                    <td>{{course.duration}} months</td>
-                    <td>
-                        <a href="{{ path('course_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
-                        <a href="{{ path('course_delete',{'id' : course.id}) }}" 
-                            class="btn btn-danger" onclick="return confirm('Delete this Course ? ')">Delete</a>
-                    </td>
-                </tr> 
-        <body>
-            
-        </body>
-    </table>
+    <div class="">
+        {{form_start(form)}}
+            <div class="form-group">
+                {{form_label(form.name)}}
+                {{form_widget(form.name,
+                    {
+                        'attr': {'class' : 'form-control'}
+                    })
+                }}
+            </div>
+            <div class="form-group">
+                {{form_label(form.duration)}}
+                {{form_widget(form.duration,
+                    {
+                        'attr': {'class' : 'form-control'}
+                    })
+                }}
+            </div>
+            <div class="form-group">
+                {{form_label(form.students)}}
+                {{form_widget(form.students,
+                    {
+                        'attr': {'class' : 'form-control'}
+                    })
+                }}
+            </div>
+            <div class="form-group mt-3">
+                <button class="btn btn-primary" type="submit">UPDATE</button>
+            </div>
+        {{form_end(form)}}        
+    </div>
+</div>
 </div>
 {% endblock %}

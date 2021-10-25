@@ -7,7 +7,6 @@ use App\Entity\Student;
 use App\Form\CourseType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -86,7 +85,7 @@ class CourseController extends AbstractController
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
-        $form = $this->createForm(Course::class, $course);
+        $form = $this->createForm(CourseType::class, $course);
         $form -> handleRequest($request);
 
         if ($form -> isSubmitted() && $form -> isValid()) {
@@ -99,7 +98,7 @@ class CourseController extends AbstractController
         }
 
         return $this->render(
-            "course/add.html.twig",
+            "course/update.html.twig",
             [
                 'form' => $form->createView()
             ]
