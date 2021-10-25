@@ -78,7 +78,7 @@ class CourseController extends AbstractController
             [
                 'form' => $form->createView()
             ]
-        )
+        );
 
     }
 
@@ -102,7 +102,7 @@ class CourseController extends AbstractController
             [
                 'form' => $form->createView()
             ]
-        )
+            );
     }
 
 
