@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
+use App\Entity\Course;
 
 use Symfony\Component\HttpFoundation\Request;
 use function PHPUnit\Framework\throwException;
