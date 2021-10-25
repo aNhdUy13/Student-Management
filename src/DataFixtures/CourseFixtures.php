@@ -13,7 +13,7 @@ class CourseFixtures extends Fixture
         for ($i=1; $i<=10; $i++){
             $course = new Course();
             $course->setName("Course $i");
-            $course->setDuration(rand(1,5));
+            $course->setDuration(rand(2,5));
 
             $manager -> persist($course);
         }

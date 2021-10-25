@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{course.id}}</td>
                     <td>{{course.name}}</td>
-                    <td>{{course.duration}}</td>
+                    <td>{{course.duration}} months</td>
                     <td>
                         <a href="{{ path('course_detail', {'id' :course.id}) }}" class="btn btn-secondary">Detail</a>
                         <a href="{{ path('course_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
