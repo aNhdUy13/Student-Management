@@ -26,14 +26,6 @@ class CourseType extends AbstractType
                 'label' => "Course Duration",
                 'required' => true,
             ])
-            ->add('students', EntityType::class,
-            [
-                'label' => "Students",
-                'class' => Student::class,
-                'choice_label' => "name",
-                'multiple' => true,
-                'expanded' => false,
-            ])
         ;
     }
 
