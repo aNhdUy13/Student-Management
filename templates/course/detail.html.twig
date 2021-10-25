@@ -2,18 +2,18 @@
 
 {% block body %}
 <div class="container col-6 mt-3">
-    <h2><a href="{{ path('course_add') }}" class="btn btn-outline-success">Create New Course</a></h2>
+    <h2><a href="{{ path('course_index') }}" class="btn btn-outline-success">Course List</a></h2>
 
     <table  class="table table-striped">
         <head>
             <tr>
                 <th>ID</th>
                 <th>Course Name</th>
-                <th>Duration</th>   
+                <th>Duration</th>
+                <th>Student joined</th>   
                 <th>MENU</th>
             </tr>
         </head>
-            {% for course in courses %}
                 <tr>
                     <td>{{course.id}}</td>
                     <td>{{course.name}}</td>
@@ -24,8 +24,7 @@
                         <a href="{{ path('student_delete',{'id' : course.id}) }}" 
                             class="btn btn-danger" onclick="return confirm('Delete this Student ? ')">Delete</a>
                     </td>
-                </tr>
-            {% endfor %}    
+                </tr> 
         <body>
             
         </body>
