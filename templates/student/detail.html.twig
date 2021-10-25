@@ -26,10 +26,10 @@
                     <td>{{student.phoneNumber}}</td>
                     <td>
                          {% for co in student.course %}
-                            <a href="#">
-                                {{co.name}}
-                            </a>
+                            <a href="{{ path("course_detail",{'id' : co.id}) }}" class="">
+                            {{ co.name }}
                             <br>
+                        </a>
                          {% endfor %}
                     </td>
 
