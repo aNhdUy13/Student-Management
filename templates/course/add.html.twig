@@ -1,35 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Add Class
+    ADD COURSE
 {% endblock %}
 
 {% block body %}
-<div class="container col-6 mt-3">
-    <h2><a href="{{ path('course_index') }}" class="btn btn-outline-success">Course List</a></h2>
+<div class = "OutsideAdd">
+    <div class="container-fluid mt-3">
+    <h2 class="text-center"> Add New Course</h2>
 
-    <table  class="table table-striped">
-        <head>
-            <tr>
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Duration</th>
-                <th>MENU</th>
-            </tr>
-        </head>
-                <tr>
-                    <td>{{course.id}}</td>
-                    <td>{{course.name}}</td>
-                    <td>{{course.duration}} months</td>
-                    <td>
-                        <a href="{{ path('course_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
-                        <a href="{{ path('course_delete',{'id' : course.id}) }}" 
-                            class="btn btn-danger" onclick="return confirm('Delete this Course ? ')">Delete</a>
-                    </td>
-                </tr> 
-        <body>
-            
-        </body>
-    </table>
+    <div class="">
+        {{form_start(form)}}
+        
+        {{form_end(form)}}
+    </div>
+
+</div>
+
 </div>
 {% endblock %}

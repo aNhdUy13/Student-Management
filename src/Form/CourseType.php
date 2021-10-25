@@ -6,7 +6,11 @@ use App\Entity\Course;
 use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\FormTypeInterface;
 
 class CourseType extends AbstractType
 {
@@ -22,14 +26,13 @@ class CourseType extends AbstractType
             [
                 'label' => "Course Duration",
                 'required' => true,
-                'currency' => "months"
             ])
             ->add('students', EntityType::class,
             [
                 'label' => "Students",
                 'class' => Student::class,
                 'choice_label' => "name",
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => false,
             ])
         ;
