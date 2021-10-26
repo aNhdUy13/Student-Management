@@ -7,12 +7,14 @@ use App\Form\SubjectType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 /**
- * @IsGranted('ROLE_USER')
+ * @IsGranted("ROLE_USER")
  */
 class SubjectController extends AbstractController
-{
+{   
     #[Route('/subject', name: 'subject_view')]
     public function viewSubject(){
         $subjects = $this->getDoctrine()->getRepository(Subject::class)-> findAll();
@@ -22,7 +24,9 @@ class SubjectController extends AbstractController
         ]);
         
     }
-
+/**
+ * @IsGranted("ROLE_USER")
+ */
     #[Route('/subject/detail/{id}', name: 'subject_detail')]
     public function subjectDetail($id){
         $subject = $this->getDoctrine()->getRepository(Subject::class)-> find($id);
@@ -31,10 +35,9 @@ class SubjectController extends AbstractController
             'subject' => $subject,
         ]);
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/subject/delete/{id}', name: 'subject_delete')]
     public function deleteSubject($id){
         $subject = $this->getDoctrine()->getRepository(Subject::class)
@@ -55,10 +58,9 @@ class SubjectController extends AbstractController
         }
         return $this->redirectToRoute('subject_view');
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('subject/add',name :'subject_add')]
     public function addSubject(Request $request){
         $subject = new Subject();
@@ -81,10 +83,9 @@ class SubjectController extends AbstractController
             ]
         );
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */ 
     #[Route('subject/update/{id}', name :'subject_update')]
     public function updateSubject(Request $request, $id){
         $subject = $this->getDoctrine()->getRepository(Subject::class)->find($id);

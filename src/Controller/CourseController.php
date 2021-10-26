@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
- * @IsGranted('ROLE_USER')
+ * @IsGranted("ROLE_USER")
  */
 class CourseController extends AbstractController
 {
@@ -29,11 +29,9 @@ class CourseController extends AbstractController
             ]
         );
     }
-
-
-    /**
-    * @IsGranted('ROLE_USER')
-    */
+/**
+ * @IsGranted("ROLE_USER")
+ */
     #[Route('/course/detail/{id}',name : 'course_detail')]
     public function courseDetail($id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
@@ -50,10 +48,9 @@ class CourseController extends AbstractController
             );
         }
     }
-    
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/course/delete/{id}', name : 'course_delete')]
     public function courseDelete($id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
@@ -69,9 +66,9 @@ class CourseController extends AbstractController
         return $this->redirectToRoute('course_index');
     } 
     
-    /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+        /**
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/course/add', name : 'course_add')]
     public function courseAdd(Request $request){
         $course = new Course();
@@ -96,9 +93,9 @@ class CourseController extends AbstractController
 
     }
 
-    /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+        /**
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);

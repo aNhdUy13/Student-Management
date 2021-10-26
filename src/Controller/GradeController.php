@@ -7,9 +7,10 @@ use App\Form\GradeType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
- * @IsGranted('ROLE_USER')
+ * @IsGranted("ROLE_USER")
  */
 class GradeController extends AbstractController
 {
@@ -22,7 +23,9 @@ class GradeController extends AbstractController
         ]);
         
     }
-
+/**
+ * @IsGranted("ROLE_USER")
+ */
     #[Route('/grade/detail/{id}', name: 'grade_detail')]
     public function gradeDetail($id){
         $grade = $this->getDoctrine()->getRepository(Grade::class)-> find($id);
@@ -31,10 +34,9 @@ class GradeController extends AbstractController
             'grade' => $grade,
         ]);
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/grade/delete/{id}', name: 'grade_delete')]
     public function deleteGrade($id){
         $grade = $this->getDoctrine()->getRepository(Grade::class)
@@ -55,11 +57,9 @@ class GradeController extends AbstractController
         }
         return $this->redirectToRoute('grade_view');
     }
-
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('grade/add',name :'grade_add')]
     public function addGrade(Request $request){
         $grade = new Grade();
@@ -82,10 +82,9 @@ class GradeController extends AbstractController
             ]
         );
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('grade/update/{id}', name :'grade_update')]
     public function updateGrade(Request $request, $id){
         $grade = $this->getDoctrine()->getRepository(Grade::class)->find($id);

@@ -7,9 +7,10 @@ use App\Form\SclassType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
- * @IsGranted('ROLE_USER')
+ * @IsGranted("ROLE_USER")
  */
 class SclassController extends AbstractController
 {
@@ -23,7 +24,9 @@ class SclassController extends AbstractController
             'classes' => $sclasses,
         ]);
     }
-
+/**
+ * @IsGranted("ROLE_USER")
+ */
     #[Route('/sclass/detail/{id}', name : "sclass_detail")]
     public function classDetailAction($id){
         $sclass = $this -> getDoctrine() -> getRepository(Sclass::class) -> find($id);
@@ -33,10 +36,9 @@ class SclassController extends AbstractController
             'class' => $sclass,
         ]);
     }
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/sclass/delete/{id}', name : "sclass_delete")]
     public function deleteAction($id){
         $Sclass = $this -> getDoctrine() 
@@ -58,10 +60,9 @@ class SclassController extends AbstractController
         return $this -> redirectToRoute('sclass_index');
     }
 
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/sclass/add', name : "sclass_add")]
     public function addClassAction(Request $request)
     {
@@ -87,10 +88,9 @@ class SclassController extends AbstractController
 
     }
 
-
     /**
-    * @IsGranted('ROLE_ADMIN')
-    */
+ * @IsGranted("ROLE_ADMIN")
+ */
     #[Route('/sclass/update/{id}', name : "sclass_update")]
     public function updateClassAction($id, Request $request)
     {
