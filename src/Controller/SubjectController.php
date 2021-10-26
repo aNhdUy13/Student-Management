@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+/**
+ * @IsGranted('ROLE_USER')
+ */
 class SubjectController extends AbstractController
 {
     #[Route('/subject', name: 'subject_view')]
@@ -30,6 +32,9 @@ class SubjectController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/subject/delete/{id}', name: 'subject_delete')]
     public function deleteSubject($id){
         $subject = $this->getDoctrine()->getRepository(Subject::class)
@@ -51,6 +56,9 @@ class SubjectController extends AbstractController
         return $this->redirectToRoute('subject_view');
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('subject/add',name :'subject_add')]
     public function addSubject(Request $request){
         $subject = new Subject();
@@ -74,6 +82,9 @@ class SubjectController extends AbstractController
         );
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('subject/update/{id}', name :'subject_update')]
     public function updateSubject(Request $request, $id){
         $subject = $this->getDoctrine()->getRepository(Subject::class)->find($id);

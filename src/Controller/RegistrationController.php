@@ -13,24 +13,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface): Response
+    public function register(Request $request, UserPasswordHasherInterface $emailPasswordHasherInterface): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $email = new User();
+        $form = $this->createForm(RegistrationFormType::class, $email);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            
-            $user->setPassword(
-            $userPasswordHasherInterface->hashPassword(
-                    $user,
+            $email->setRoles(['ROLE_USER']);
+            $email->setPassword(
+            $emailPasswordHasherInterface->hashPassword(
+                    $email,
                     $form->get('plainPassword')->getData()
                 )
             );
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($email);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
@@ -40,6 +40,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            $this->addFlash('Error', 'Registration fail')
         ]);
     }
 }

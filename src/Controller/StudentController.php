@@ -15,7 +15,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-
+/**
+ * @IsGranted('ROLE_USER')
+ */
 class StudentController extends AbstractController
 {
     #[Route('/student', name: 'student_index')]
@@ -39,6 +41,9 @@ class StudentController extends AbstractController
             ]);
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/student/delete/{id}', name: 'student_delete')]
     public function deleteStudentAction($id){
         $student = $this -> getDoctrine()
@@ -60,7 +65,9 @@ class StudentController extends AbstractController
         return $this->redirectToRoute('student_index');
     }
 
-
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/student/add', name: 'student_add')]
     public function addStudentAction(Request $request){
         $student = new Student();
@@ -110,6 +117,9 @@ class StudentController extends AbstractController
 
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('student/update/{id}', name: 'student_update')]
     public function updateStudentAction($id, Request $request){
         $student = $this

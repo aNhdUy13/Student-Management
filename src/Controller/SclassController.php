@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+/**
+ * @IsGranted('ROLE_USER')
+ */
 class SclassController extends AbstractController
 {
     #[Route('/sclass', name: 'sclass_index')]
@@ -32,6 +34,9 @@ class SclassController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/sclass/delete/{id}', name : "sclass_delete")]
     public function deleteAction($id){
         $Sclass = $this -> getDoctrine() 
@@ -54,6 +59,9 @@ class SclassController extends AbstractController
     }
 
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/sclass/add', name : "sclass_add")]
     public function addClassAction(Request $request)
     {
@@ -80,6 +88,9 @@ class SclassController extends AbstractController
     }
 
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/sclass/update/{id}', name : "sclass_update")]
     public function updateClassAction($id, Request $request)
     {

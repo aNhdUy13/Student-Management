@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+/**
+ * @IsGranted('ROLE_USER')
+ */
 class GradeController extends AbstractController
 {
     #[Route('/grade', name: 'grade_view')]
@@ -30,6 +32,9 @@ class GradeController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('/grade/delete/{id}', name: 'grade_delete')]
     public function deleteGrade($id){
         $grade = $this->getDoctrine()->getRepository(Grade::class)
@@ -51,6 +56,10 @@ class GradeController extends AbstractController
         return $this->redirectToRoute('grade_view');
     }
 
+
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('grade/add',name :'grade_add')]
     public function addGrade(Request $request){
         $grade = new Grade();
@@ -74,6 +83,9 @@ class GradeController extends AbstractController
         );
     }
 
+    /**
+    * @IsGranted('ROLE_ADMIN')
+    */
     #[Route('grade/update/{id}', name :'grade_update')]
     public function updateGrade(Request $request, $id){
         $grade = $this->getDoctrine()->getRepository(Grade::class)->find($id);
