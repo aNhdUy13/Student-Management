@@ -3,17 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Course;
-use App\Form\CourseType;
 use App\Entity\Student; 
+use App\Form\CourseType;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
-
+/**
+ * @IsGranted("ROLE_USER")
+ */
 class CourseController extends AbstractController
 {
     #[Route('/course', name: 'course_index')]
@@ -43,7 +46,9 @@ class CourseController extends AbstractController
             );
         }
     }
-
+    /**
+    * @IsGranted("ROLE_ADMIN")
+    */
     #[Route('/course/delete/{id}', name : 'course_delete')]
     public function courseDelete($id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
@@ -58,7 +63,10 @@ class CourseController extends AbstractController
         }
         return $this->redirectToRoute('course_index');
     } 
-
+    
+    /**
+    * @IsGranted("ROLE_ADMIN")
+    */
     #[Route('/course/add', name : 'course_add')]
     public function courseAdd(Request $request){
         $course = new Course();
@@ -83,6 +91,9 @@ class CourseController extends AbstractController
 
     }
 
+    /**
+    * @IsGranted("ROLE_ADMIN")
+    */
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
