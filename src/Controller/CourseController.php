@@ -14,9 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
-/**
- * @IsGranted("ROLE_USER")
- */
+
 class CourseController extends AbstractController
 {
     #[Route('/course', name: 'course_index')]
@@ -46,9 +44,7 @@ class CourseController extends AbstractController
             );
         }
     }
-    /**
-    * @IsGranted("ROLE_ADMIN")
-    */
+    
     #[Route('/course/delete/{id}', name : 'course_delete')]
     public function courseDelete($id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
@@ -64,13 +60,11 @@ class CourseController extends AbstractController
         return $this->redirectToRoute('course_index');
     } 
     
-    /**
-    * @IsGranted("ROLE_ADMIN")
-    */
+    
     #[Route('/course/add', name : 'course_add')]
     public function courseAdd(Request $request){
         $course = new Course();
-        $form = $this->createForm(CourseType    ::class, $course);
+        $form = $this->createForm(CourseType::class, $course);
         $form -> handleRequest($request);
 
         if ($form -> isSubmitted() && $form -> isValid()) {
@@ -91,9 +85,7 @@ class CourseController extends AbstractController
 
     }
 
-    /**
-    * @IsGranted("ROLE_ADMIN")
-    */
+    
     #[Route('course/update/{id}', name : 'course_update')]
     public function courseUpdate(Request $request, $id){
         $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
