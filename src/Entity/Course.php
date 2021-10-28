@@ -34,6 +34,21 @@ class Course
      */
     private $students;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $starttime;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $endtime;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $covercourse;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
@@ -91,6 +106,42 @@ class Course
         if ($this->students->removeElement($student)) {
             $student->removeCourse($this);
         }
+
+        return $this;
+    }
+
+    public function getStarttime(): ?\DateTimeInterface
+    {
+        return $this->starttime;
+    }
+
+    public function setStarttime(\DateTimeInterface $starttime): self
+    {
+        $this->starttime = $starttime;
+
+        return $this;
+    }
+
+    public function getEndtime(): ?\DateTimeInterface
+    {
+        return $this->endtime;
+    }
+
+    public function setEndtime(\DateTimeInterface $endtime): self
+    {
+        $this->endtime = $endtime;
+
+        return $this;
+    }
+
+    public function getCovercourse(): ?string
+    {
+        return $this->covercourse;
+    }
+
+    public function setCovercourse(string $covercourse): self
+    {
+        $this->covercourse = $covercourse;
 
         return $this;
     }

@@ -14,6 +14,9 @@ class CourseFixtures extends Fixture
             $course = new Course();
             $course->setName("Course $i");
             $course->setDuration(rand(2,5));
+            $course -> setCovercourse("22222.jpg");
+            $course -> setStarttime(\DateTime::createFromFormat('Y-m-d','2021-12-13'));
+            $course -> setEndtime(\DateTime::createFromFormat('Y-m-d','2021-12-13'));
 
             $manager -> persist($course);
         }

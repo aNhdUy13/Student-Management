@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="container col-6 mt-3">
+<div class="container col-10 mt-3">
     <h2><a href="{{ path('course_add') }}" class="btn btn-outline-success">Create New Course</a></h2>
 
     <table  class="table table-striped">
@@ -14,14 +14,26 @@
                 <th>ID</th>
                 <th>Course Name</th>
                 <th>Duration</th>   
+                <th>Cover Course</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>MENU</th>
             </tr>
         </head>
             {% for course in courses %}
                 <tr>
+                    
                     <td>{{course.id}}</td>
                     <td>{{course.name}}</td>
                     <td>{{course.duration}} months</td>
+                    <td>
+                        <a href="{{ path('course_detail', {'id': course.id}) }}">
+                            <img src="{{asset('images/courses/'~course.covercourse)}}" 
+                             width="120" height="120" alt="">
+                        </a>
+                    </td>
+                    <td>{{course.starttime|date("d-m-Y")}}</td>
+                    <td>{{course.endtime|date("d-m-Y")}}</td>
                     <td>
                         <a href="{{ path('course_detail', {'id' :course.id}) }}" class="btn btn-secondary">Detail</a>
                         <a href="{{ path('course_update', {'id': course.id}) }}" class="btn btn-primary">Update</a>
