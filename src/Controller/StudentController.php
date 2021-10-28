@@ -42,6 +42,7 @@ class StudentController extends AbstractController
                 'student' => $student
             ]);
     }
+
     /**
  * @IsGranted("ROLE_ADMIN")
  */
@@ -170,7 +171,7 @@ class StudentController extends AbstractController
                 $manager->persist($student);
                 $manager->flush();
 
-                $this->addFlash('Success', "Edit book successfully !");
+                $this->addFlash('Success', "Edit Student successfully !");
                 return $this->redirectToRoute("student_index");
             }
 

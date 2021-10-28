@@ -14,7 +14,7 @@ class SubjectType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Name',
+                'label' => 'Subject Name',
                 'required' => true
                 ])
             ->add('subjectCode',TextType::class, [
