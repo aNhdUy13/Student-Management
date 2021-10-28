@@ -21,7 +21,7 @@ class GradeType extends AbstractType
                 'required' => true
             ])
             ->add('subject',EntityType::class,[
-                'label' => 'Subject',
+                'label' => 'Subject Name',
                 'class' => Subject::class,
                 'choice_label' => "name",
 
@@ -29,12 +29,12 @@ class GradeType extends AbstractType
                 'expanded' => false
             ])
             ->add('student',EntityType::class,[
-                'label' => 'Student',
+                'label' => 'Student Name',
                 'class' => Student::class,
                 'choice_label' => "name",
 
-                'multiple' => false,
-                'expanded' => false
+                'multiple' => false, // true: Có thể chọn nhiều, false: Chỉ chọn 1 
+                'expanded' => false // true: checkbox, false: dropdown list
             ])
         ;
     }
