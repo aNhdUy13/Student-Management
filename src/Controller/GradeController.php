@@ -16,12 +16,11 @@ class GradeController extends AbstractController
 {
     #[Route('/grade', name: 'grade_view')]
     public function viewGrade(){
-        $grades = $this->getDoctrine()->getRepository(Grade::class)-> findAll();
-
+        $grades = $this->getDoctrine()->getRepository(Grade::class)-> findAll();   
+        
         return $this->render('grade/view.html.twig',[
             'grades' => $grades,
-        ]);
-        
+        ]);  
     }
 /**
  * @IsGranted("ROLE_USER")

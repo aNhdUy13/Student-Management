@@ -1,13 +1,10 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Subject{% endblock %}
-
 {% block body %}
 	<div class="container col-6 mt-3">
 		<h2>
 			<a href="{{ path('subject_add') }}" class="btn btn-outline-success">New Subject</a>
 		</h2>
-
 		<table class="table table-striped">
 			<head>
 				<tr>
@@ -17,8 +14,6 @@
 					<th>Menu</th>
 				</tr>
 			</head>
-
-
 			{% for subject in subjects %}
 				<tr>
 					<td>{{subject.id}}</td>
@@ -34,8 +29,6 @@
 					</td>
 				</tr>
 			{% endfor %}
-
-			<body></body>
 		</table>
 	</div>
 {% endblock %}
